@@ -165,7 +165,7 @@ let timeout;
 let index;
 document.querySelector('.card').addEventListener('click', function(event){
     
-    
+        
           document.querySelector("#fullScreen").style.display = "none";
           document.querySelector(".card").style.filter="blur(0px)";
           console.log("card clicked")
@@ -174,8 +174,8 @@ document.querySelector('.card').addEventListener('click', function(event){
 
 
     if (event.target.classList.contains('btn')) {
-        
-        let clickedBtn = event.target;
+        setTimeout(()=>{
+            let clickedBtn = event.target;
         let addmsg = clickedBtn.parentElement;
         
         if (clickedBtn.innerHTML === "Follow") {
@@ -186,9 +186,15 @@ document.querySelector('.card').addEventListener('click', function(event){
             // Show only the follow button
             addmsg.innerHTML = `<button class="btn" id="btn0">Follow</button>`;
         } else if (clickedBtn.id === 'messageBtn') {
+
+
+
+            
             // Handle the message button click here
             console.log("Message button clicked!");
         } 
+        } ,250)
+        
     }
 
     //displaying the story in the fullscreen mode
