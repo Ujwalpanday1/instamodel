@@ -1,0 +1,185 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.card{
+     height :90vh;
+     min-height: fit-content;
+     width: 50vw;
+    background-color:rgb(242, 245, 245);
+    position: relative;
+}
+@media screen and (max-width:800px) {
+    .card{
+        width:100vw;
+        height: 98vh;
+    }
+    .logo{
+        width:25vw;
+    }
+}
+.stories{
+height: 85px;
+width: 100%;
+background-color: rgb(226, 240, 240);
+border-radius: 5px;
+overflow-x: auto;
+white-space: nowrap;
+padding: 10px 0;
+}
+.stories::-webkit-scrollbar{
+    display: none;
+    border: 1px solid aqua;
+}
+#stlogo{
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.backgroundCircle{
+    height:76px;
+    width: 76px;
+    border-radius: 50%;
+    background: linear-gradient(blue,red);
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 5px;
+    position: relative;
+    animation: changeColor 3s infinite;
+}
+@keyframes changeColor {
+    from{
+        background: linear-gradient(blue,red);
+    }
+    to{
+        background: linear-gradient(red,blue);
+    }
+}
+.story{
+    height:10vh;
+    width: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.story img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+#fullScreen{
+    height:80vh;
+    width:25vw;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display:none; 
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    border: 2px solid rgb(28, 8, 87);
+}
+#fullScreen img{
+    object-fit: cover;
+    object-position: center;
+}
+.timeset{
+    margin-top: 0.5vh;
+    margin-left: 3%;
+    height: 0.5vh;
+    width:0%;
+    border-radius: 15px;
+    background:linear-gradient(red,blue);
+    animation-duration: 3500ms;
+    animation-name: timer;
+    animation-fill-mode: both;
+}
+@keyframes timer{
+    from {
+ width: 0%;
+    }
+    to {
+width: 94%;
+    }
+}
+.logo{
+ width:5vw;
+}
+.logo img{
+    width:100%;
+    height: auto;
+}
+.peopleYOuMayKnow{
+    height: 5vh;
+    width: 100%;
+    font-weight: bolder;
+    font-size: x-large;
+    margin-top: 3vh;
+    color:rgb(149, 8, 8)
+}
+.followPages{
+    height:70vh;
+    width: 100%;
+    white-space: nowrap;
+    overflow-y: auto;
+}
+.followPages::-webkit-scrollbar{
+    display: none;
+}
+.people{
+    
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: rgb(233, 244, 244);
+    margin: 15px 0;
+}
+.people .dp{
+    height:70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid rgb(124, 124, 177);
+    overflow: hidden;
+}
+.people .info{
+    margin: 5px 5px 35px 3px;
+}
+.dp img{
+    width:100%;
+    height: auto;
+}
+.people .infoanddp{
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+.followerbutton button{
+    margin-top: 10px;
+    background: linear-gradient(rgb(94, 94, 176),rgb(145, 107, 107));
+    color: rgb(252, 251, 254);
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 10px 12px;
+}
+#messageBtn{
+    color: black;
+    background: linear-gradient(rgb(119, 119, 185),rgb(245, 242, 242))
+}
+
+
