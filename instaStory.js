@@ -201,19 +201,35 @@ void document.querySelector("#fullScreen").offsetWidth;
 
     // we get the id of image from clickedbtn.id wchich is again equivalent to the index of array
     document.querySelector("#fullScreen").style.backgroundImage = `url('${arr[clickedBtn.id].story}')`;
-    
+    0
 document.querySelector("#fullScreen").style.display = "block";
 document.querySelector(".card").style.filter="blur(10px)";
 
+let index=clickedBtn.id;
+ timeout=setTimeout(changeStory,3500);
+ function changeStory(){
 
+    // i don't know but the animation reset only when i set the display first to none and then to display block;
+      document.querySelector("#fullScreen").style.display = "none";
+        void document.querySelector("#fullScreen").offsetWidth;
+        document.querySelector("#fullScreen").style.display = "block";
 
-console.log("story clicked")
- timeout=setTimeout(()=>{
-    console.log("timeout runed")
-    document.querySelector("#fullScreen").style.display = "none";
-document.querySelector(".card").style.filter="blur(0px)";
-},3500)
-
+    if (index >= arr.length - 1) {
+        clearTimeout(timeout); 
+        document.querySelector("#fullScreen").style.display = "none";
+        document.querySelector(".card").style.filter="blur(0px)";
+    }
+    else{
+   
+        // trying to change story after timeout and even restart the animation and again calling the timeout function after the timeout 
+        index=parseInt(index)+1;
+    document.querySelector("#fullScreen").style.backgroundImage = `url('${arr[index.toString()].story}')`; 
+     
+    // here if timeout variable is not used than the recursive function always runs even after clicking the card
+    // because we had clear timeout using the variable when the card is clicked
+    timeout=setTimeout(changeStory,3500);
+    }
+}
 }
 // to set display none after clicking any where in card when story is open 
 
