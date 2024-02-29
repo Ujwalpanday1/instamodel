@@ -162,6 +162,7 @@ document.querySelector(".followPages").innerHTML=followPage;
 
 
 let timeout;
+let index;
 document.querySelector('.card').addEventListener('click', function(event){
     
     
@@ -201,12 +202,16 @@ void document.querySelector("#fullScreen").offsetWidth;
 
     // we get the id of image from clickedbtn.id wchich is again equivalent to the index of array
     document.querySelector("#fullScreen").style.backgroundImage = `url('${arr[clickedBtn.id].story}')`;
-    0
 document.querySelector("#fullScreen").style.display = "block";
 document.querySelector(".card").style.filter="blur(10px)";
 
-let index=clickedBtn.id;
+ index=clickedBtn.id;
  timeout=setTimeout(changeStory,3500);
+
+}
+// to set display none after clicking any where in card when story is open 
+
+},true);
  function changeStory(){
 
     // i don't know but the animation reset only when i set the display first to none and then to display block;
@@ -222,7 +227,9 @@ let index=clickedBtn.id;
     else{
    
         // trying to change story after timeout and even restart the animation and again calling the timeout function after the timeout 
+
         index=parseInt(index)+1;
+    
     document.querySelector("#fullScreen").style.backgroundImage = `url('${arr[index.toString()].story}')`; 
      
     // here if timeout variable is not used than the recursive function always runs even after clicking the card
@@ -230,8 +237,19 @@ let index=clickedBtn.id;
     timeout=setTimeout(changeStory,3500);
     }
 }
-}
-// to set display none after clicking any where in card when story is open 
-
-
-},true);
+let fS=document.querySelector("#fullScreen");
+fS.addEventListener("click",(event)=>{
+    clearTimeout(timeout)
+   
+    let centreX=(fS.getBoundingClientRect().right+fS.getBoundingClientRect().left)/2;
+    if(event.clientX>centreX){
+// no need to increase index because index is increased already in changestory function 
+        changeStory();
+    }
+    else{
+        // should be decreased by 2 as changestory function increases it by one 
+        index=index-2;
+        changeStory();
+    }
+ 
+})

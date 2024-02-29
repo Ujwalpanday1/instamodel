@@ -35,6 +35,9 @@ padding: 10px 0;
     display: inline-block;
     overflow: hidden;
     border-radius: 50%;
+    height: 72px;
+    width: 72px;
+
 }
 .backgroundCircle{
     height:76px;
@@ -180,9 +183,7 @@ width: 94%;
         width:100vw;
         height: 98vh;
     }
-    .logo{
-        width:20vw;
-    }
+
     #fullScreen{
         width:90vw;
         height: 70vh; 
